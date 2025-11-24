@@ -237,6 +237,10 @@ const Index = () => {
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                       Добро пожаловать на [JAIL] Тюрьма заточение
                     </h2>
+                    <div className="mb-4 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-lg border border-primary/30">
+                      <Icon name="Server" size={20} className="text-primary" />
+                      <span className="text-xl font-semibold text-primary">46.174.52.2:27202</span>
+                    </div>
                     <p className="text-lg text-muted-foreground max-w-2xl">
                       Следи за последними новостями, обновлениями и событиями на нашем сервере.
                       Присоединяйся к игровому сообществу!

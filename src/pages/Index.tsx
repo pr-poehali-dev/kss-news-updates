@@ -49,7 +49,7 @@ const Index = () => {
       type: 'update',
     },
   ]);
-  const rulesLink = 'https://ct-game-rules-site--preview.poehali.dev/';
+  const [rulesLink, setRulesLink] = useState('https://ct-game-rules-site--preview.poehali.dev/');
   const isAdmin = true;
 
   const [newItem, setNewItem] = useState({
@@ -194,7 +194,22 @@ const Index = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-
+                <div className="space-y-4">
+                  <div>
+                    <Label htmlFor="rulesLink">Ссылка на правила</Label>
+                    <div className="flex gap-2 mt-2">
+                      <Input
+                        id="rulesLink"
+                        value={rulesLink}
+                        onChange={(e) => setRulesLink(e.target.value)}
+                        placeholder="https://..."
+                      />
+                      <Button onClick={() => toast.success('Ссылка сохранена')}>
+                        Сохранить
+                      </Button>
+                    </div>
+                  </div>
+                </div>
                 <div className="pt-4">
                   <a
                     href={rulesLink}

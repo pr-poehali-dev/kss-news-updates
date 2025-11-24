@@ -36,23 +36,21 @@ const Index = () => {
   const [items, setItems] = useState<ContentItem[]>([
     {
       id: '1',
-      title: 'Запуск нового сезона КСС в34',
-      content: 'Мы рады объявить о запуске нового сезона! Новые карты, режимы и турниры ждут вас.',
+      title: 'Открытие сервера [JAIL] Тюрьма',
+      content: 'Сервер [JAIL] Тюрьма заточение открыт! Приглашаем всех игроков присоединиться к нашему сообществу.',
       date: '2024-11-24',
       type: 'news',
     },
     {
       id: '2',
-      title: 'Патч 1.5.2 - Баланс оружия',
-      content: 'Обновлен баланс оружия, исправлены критические баги, добавлены новые скины.',
+      title: 'Обновление игрового баланса',
+      content: 'Произведена балансировка игровых механик, исправлены ошибки, добавлены новые функции.',
       date: '2024-11-23',
       type: 'update',
     },
   ]);
-  const [rulesLink, setRulesLink] = useState('https://example.com/rules');
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [adminPassword, setAdminPassword] = useState('');
-  const [showAdminDialog, setShowAdminDialog] = useState(false);
+  const rulesLink = 'https://ct-game-rules-site--preview.poehali.dev/';
+  const isAdmin = true;
 
   const [newItem, setNewItem] = useState({
     title: '',
@@ -61,15 +59,7 @@ const Index = () => {
     customLabel: '',
   });
 
-  const handleAdminLogin = () => {
-    if (adminPassword === 'admin123') {
-      setIsAdmin(true);
-      setShowAdminDialog(false);
-      toast.success('Вход выполнен успешно');
-    } else {
-      toast.error('Неверный пароль');
-    }
-  };
+
 
   const handleAddItem = () => {
     if (!newItem.title || !newItem.content) {
@@ -116,9 +106,9 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  КСС в34
+                  [JAIL] Тюрьма
                 </h1>
-                <p className="text-xs text-muted-foreground">Официальный портал</p>
+                <p className="text-xs text-muted-foreground">Заточение</p>
               </div>
             </div>
 
@@ -157,39 +147,7 @@ const Index = () => {
               </Button>
             </nav>
 
-            <Dialog open={showAdminDialog} onOpenChange={setShowAdminDialog}>
-              <DialogTrigger asChild>
-                <Button
-                  variant={isAdmin ? 'secondary' : 'outline'}
-                  size="sm"
-                  className="hover-scale"
-                >
-                  <Icon name={isAdmin ? 'ShieldCheck' : 'Lock'} size={16} className="mr-2" />
-                  {isAdmin ? 'Админ' : 'Вход'}
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Вход в админ-панель</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4 pt-4">
-                  <div>
-                    <Label htmlFor="password">Пароль</Label>
-                    <Input
-                      id="password"
-                      type="password"
-                      value={adminPassword}
-                      onChange={(e) => setAdminPassword(e.target.value)}
-                      onKeyDown={(e) => e.key === 'Enter' && handleAdminLogin()}
-                      placeholder="Введите пароль"
-                    />
-                  </div>
-                  <Button onClick={handleAdminLogin} className="w-full">
-                    Войти
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
+
           </div>
 
           <nav className="flex md:hidden items-center gap-2 mt-4 overflow-x-auto pb-2">
@@ -236,24 +194,7 @@ const Index = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {isAdmin ? (
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="rulesLink">Ссылка на правила</Label>
-                      <div className="flex gap-2 mt-2">
-                        <Input
-                          id="rulesLink"
-                          value={rulesLink}
-                          onChange={(e) => setRulesLink(e.target.value)}
-                          placeholder="https://..."
-                        />
-                        <Button onClick={() => toast.success('Ссылка сохранена')}>
-                          Сохранить
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
+
                 <div className="pt-4">
                   <a
                     href={rulesLink}
@@ -279,11 +220,11 @@ const Index = () => {
                       В34 Онлайн
                     </Badge>
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                      Добро пожаловать на КСС в34
+                      Добро пожаловать на [JAIL] Тюрьма заточение
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-2xl">
                       Следи за последними новостями, обновлениями и событиями на нашем сервере.
-                      Присоединяйся к нашему киберспортивному сообществу!
+                      Присоединяйся к игровому сообществу!
                     </p>
                   </div>
                   <div className="absolute -right-10 -top-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
@@ -431,7 +372,7 @@ const Index = () => {
 
       <footer className="border-t border-border/50 mt-16 backdrop-blur-sm bg-background/80">
         <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-          <p>© 2024 КСС в34. Все права защищены.</p>
+          <p>© 2024 [JAIL] Тюрьма заточение. Все права защищены.</p>
         </div>
       </footer>
     </div>

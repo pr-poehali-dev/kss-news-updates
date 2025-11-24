@@ -50,7 +50,6 @@ const Index = () => {
     },
   ]);
   const [rulesLink, setRulesLink] = useState('https://ct-game-rules-site--preview.poehali.dev/');
-  const [logoUrl, setLogoUrl] = useState('');
   const isAdmin = true;
 
   const [newItem, setNewItem] = useState({
@@ -102,13 +101,9 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              {logoUrl ? (
-                <img src={logoUrl} alt="Logo" className="w-10 h-10 rounded-lg object-cover" />
-              ) : (
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <Icon name="Gamepad2" size={24} className="text-white" />
-                </div>
-              )}
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                <Icon name="Gamepad2" size={24} className="text-white" />
+              </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   [JAIL] Тюрьма
@@ -258,43 +253,14 @@ const Index = () => {
             )}
 
             {isAdmin && (
-              <>
-                <Card className="mb-8 border-primary/20 bg-card/50 backdrop-blur-sm">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Icon name="Image" size={24} className="text-primary" />
-                      Настройки логотипа
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <Label htmlFor="logoUrl">Ссылка на логотип</Label>
-                      <div className="flex gap-2 mt-2">
-                        <Input
-                          id="logoUrl"
-                          value={logoUrl}
-                          onChange={(e) => setLogoUrl(e.target.value)}
-                          placeholder="https://..."
-                        />
-                        <Button onClick={() => toast.success('Логотип обновлён')}>
-                          Сохранить
-                        </Button>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-2">
-                        Вставьте ссылку на изображение для логотипа сервера
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="mb-8 border-secondary/20 bg-card/50 backdrop-blur-sm">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Icon name="Plus" size={24} className="text-secondary" />
-                      Добавить запись
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
+              <Card className="mb-8 border-secondary/20 bg-card/50 backdrop-blur-sm">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Icon name="Plus" size={24} className="text-secondary" />
+                    Добавить запись
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
                   <div>
                     <Label htmlFor="type">Тип записи</Label>
                     <Select
@@ -355,7 +321,6 @@ const Index = () => {
                   </Button>
                 </CardContent>
               </Card>
-              </>
             )}
 
             <div className="space-y-6">
